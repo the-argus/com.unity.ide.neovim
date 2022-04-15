@@ -96,6 +96,11 @@ namespace Packages.Neovim.Editor
 
 		public bool OpenProject(string path, int line, int column)
 		{
+		    if (!CheckShouldBeOpenedInEditor(path))
+		    {
+                return false;
+		    }
+
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
               Arguments = $"\"+normal {line}G{column}|\" {path}",
@@ -119,6 +124,16 @@ namespace Packages.Neovim.Editor
 
             installation = Installations.FirstOrDefault(install => install.Path == editorPath);
             return !string.IsNullOrEmpty(installation.Name);
+		}
+
+		private bool CheckShouldBeOpenedInEditor(string path)
+		{
+		    ProjectGeneration.ProjectGeneration localProjectGeneration = (ProjectGeneration.ProjectGeneration) projectGeneration;
+		    if (string.IsNullOrEmpty(path) || !localProjectGeneration.HasValidExtension(path))
+		    {
+                return false;
+		    }
+            return true;
 		}
 	}
 }
