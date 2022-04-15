@@ -1,6 +1,6 @@
 {
-  "name": "com.unity.ide.neoivm",
-  "displayName": "Nevoim Editor",
+  "name": "com.unity.ide.neovim",
+  "displayName": "Neovim Editor",
   "description": "The Neovim Editor package provides an integration for using the Neovim with omnisharp lsp as a code editor for Unity. It adds support for generating .csproj files and open files with nvr. Nevoim Editor package is a fork of the Rider Editor package that you can find here: \"https://github.com/needle-mirror/com.unity.ide.rider\".",
   "version": "0.1.0",
   "unity": "2022.3",
