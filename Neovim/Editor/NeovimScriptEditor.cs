@@ -111,6 +111,12 @@ namespace Packages.Neovim.Editor
 
         public bool TryGetInstallationForPath(string editorPath, out CodeEditor.Installation installation)
 		{
+		    installation = default;
+		    if (Installations == null || Installations.Length == 0)
+		    {
+                return false;
+		    }
+
             installation = Installations.FirstOrDefault(install => install.Path == editorPath);
             return !string.IsNullOrEmpty(installation.Name);
 		}
