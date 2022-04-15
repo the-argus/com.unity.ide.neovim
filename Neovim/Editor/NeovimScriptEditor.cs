@@ -24,6 +24,7 @@ namespace Packages.Neovim.Editor
 
         static NeovimScriptEditor()
 		{
+		    CodeEditor.Register(new NeovimScriptEditor());
 			NeovimScriptEditor.projectGeneration = new ProjectGeneration.ProjectGeneration();
 
             launcherPath = Path.GetFullPath(Path.Combine("Packages", PackageName, NeovimLauncher));
