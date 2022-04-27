@@ -1,11 +1,11 @@
 #!/bin/bash
 
-
-nvr_exec= $HOME/.local/bin/nvr
+nvr_exec=/bin/nvr
+# replace with your terminal
+term_exec=/bin/kitty
 
 if [[ -n `$nvr_exec --serverlist | grep unity` ]]; then
     $nvr_exec --servername unity --remote-silent $@
 else
-    # Replace `tilix -e` with your terminal
-    tilix -e ${nvr_exec} --servername unity --remote-silent $@
+    $term_exec -e ${nvr_exec} --servername unity --remote-silent $@
 fi
