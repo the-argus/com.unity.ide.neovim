@@ -9,7 +9,7 @@
     "com.unity.ext.nunit": "1.0.6"
   },
   "repository": {
-    "url": "https://github.com/HelpOrMe/com.unity.ide.neovim",
+    "url": "https://github.com/the-argus/com.unity.ide.neovim",
     "type": "git"
   }
 }
