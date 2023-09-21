@@ -21,6 +21,13 @@ for arg in $@; do
         IS_UNITY="yes"
         continue
     fi
+    if [ "$arg" == "__UNITY__" ]; then
+        IS_UNITY="yes"
+        continue
+    fi
+    # escape any spaces
+    # NOTE: assumes only one path is
+    # provided.
     appended_str="${appended_str} ${arg}"
 done
 # there's always a space at the front? get rid of that
@@ -29,5 +36,5 @@ appended_str=${appended_str:1}
 if [ ! -z $IS_UNITY ]; then
     open_file_server "$appended_str"
 else
-    open_file_server $@
+    open_file_server "$@"
 fi
